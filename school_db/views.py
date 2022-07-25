@@ -1,3 +1,4 @@
+from tkinter import Entry
 from django.shortcuts import render
 from django.db.models import Count
 from django.core.exceptions import ObjectDoesNotExist
@@ -58,6 +59,11 @@ SELECT `school_db_student`.`id`,
 # Order the data by highest GPAs first (descending).
 # Print out each student's full name and gpa to the terminal
 def problem_one(request):
+
+    students = Student.objects.filter(student.gpa>3.0).order_by(-student.gpa)
+
+    for student in students:
+      print(f'Full Name: {student.first_name} {student.last_name} GPA: {student.gpa}')
 
     return complete(request)
 
