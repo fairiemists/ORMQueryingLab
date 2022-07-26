@@ -112,9 +112,7 @@ def problem_two(request):
     print(f'Hire Date: {instructor.hire_date}')
     print()
 
-    
-
-    return complete(request)
+  return complete(request)
 
 
 # Supporting Query Method Documentation:
@@ -154,8 +152,19 @@ SELECT `school_db_instructor`.`id`,
 # Print the instructors name and courses that he belongs to in the terminal
 # (Do not hard code his name in the print)
 def problem_three(request):
+  
+  instructors = Instructor.objects.filter(id=2)
 
-    return complete(request)
+  courses = Course.objects.filter(instructor_id=2)
+
+  for instructor in instructors:
+    print(f'Instructor Name: {instructor.first_name} {instructor.last_name}') 
+    print(f'Courses:')
+  
+  for course in courses:
+    print(f'- {course.name}')
+
+  return complete(request)
 
 
 # Supporting Query Method Documentation:
